@@ -2,35 +2,40 @@ import { StyleSheet, View, TextInput, } from "react-native";
 import React, { useState } from 'react';
 import { IconButton } from 'react-native-paper';
 
-const InputField = () => {
-  const [text, setText] = useState('');
-const handleSend = () => {
-if (text.trim()) {
-    console.log('Sending:', text);
-    setText('');
-    }
-  };
-  return (
-    <View style={styles.wrapper}>
-      <View style={styles.inputRow}>
-        <TextInput
-          style={styles.input}
-          onChangeText={setText}
-          value={text}
-          placeholder="Ask Anything"
-          placeholderTextColor="#777"
-          keyboardType="default"
-        />
-        <IconButton
-          icon="send-outline"
-          size={24}
-          iconColor="#fff"
-          onPress={handleSend}
-          style={styles.sendButton}
-        />
-      </View>
-    </View>
-  );
+type InputFieldProps = {
+  onSend: (message: string) => void;
+};
+
+const InputField = ({ onSend }: InputFieldProps) => {
+    const [text, setText] = useState('');
+    
+    const handleSend = () => {
+        if (text.trim()) {
+        onSend(text); 
+        setText('');
+        }
+    };
+    return (
+        <View style={styles.wrapper}>
+            <View style={styles.inputRow}>
+                <TextInput
+                style={styles.input}
+                onChangeText={setText}
+                value={text}
+                placeholder="Ask Anything"
+                placeholderTextColor="#777"
+                keyboardType="default"
+                />
+                <IconButton
+                icon="send-outline"
+                size={24}
+                iconColor="#fff"
+                onPress={handleSend}
+                style={styles.sendButton}
+                />
+            </View>
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({

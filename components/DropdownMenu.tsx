@@ -16,10 +16,10 @@ const DropdownComponent = () => {
     <View style={styles.container}>
       <View style={styles.dropdownWrapper}>
         <Dropdown
-          style={[styles.dropdown, isFocus && { borderColor: '#2e2e2e' }]}
+          style={[styles.dropdown, isFocus && styles.dropdownFocus]}
           placeholderStyle={styles.placeholderStyle}
           selectedTextStyle={styles.selectedTextStyle}
-          iconStyle={{ display: 'none' }}
+          iconStyle={styles.iconHidden}
           containerStyle={styles.dropdowncontainer}
           data={data}
           maxHeight={300}
@@ -33,36 +33,32 @@ const DropdownComponent = () => {
             setValue(item.value);
             setIsFocus(false);
           }}
-         
         />
       </View>
     </View>
   );
 };
 
-export default DropdownComponent;
-
 const styles = StyleSheet.create({
   container: {
     flex: 0,
     alignItems: 'flex-end',
-    justifyContent: 'center',    backgroundColor:'transparent',
+    justifyContent: 'center',    
+    backgroundColor:'transparent',
   },
   dropdownWrapper: {
     width: 200,
     position: 'relative',
-    
   },
   label: {
     position: 'absolute',
     top: -10,
     right: 10,
     backgroundColor:'transparent',
-        paddingHorizontal: 4,
+    paddingHorizontal: 4,
     fontSize: 12,
     zIndex: 1,
     color: '#7d7d7d',
-    
   },
   dropdown: {
     height: 50,
@@ -70,55 +66,54 @@ const styles = StyleSheet.create({
     backgroundColor:'transparent',
     paddingHorizontal: 8,
     width: '100%',
-    
   },
   item: {
-  paddingVertical: 12,
-  paddingHorizontal: 16,
-  borderBottomWidth: 0.5,
-  borderBottomColor: '#5a5a5a',
-},
-itemWrapper: {
-  backgroundColor: '#474747', // ensure it matches the container to hide the white
-  paddingVertical: 12,
-  paddingHorizontal: 16,
-  borderBottomWidth: 0.5,
-  borderBottomColor: '#5a5a5a',
-},
-
-itemText: {
-  color: '#d1d1d1',
-  fontSize: 14,
-},
-
-selectedItem: {
-  backgroundColor: '#2e2e2e',
-  borderRadius: 8,
-
-  
-},
-
-selectedItemText: {
-  color: '#ffffff',
-  fontWeight: 'bold',
-  
-},
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#5a5a5a',
+  },
+  itemWrapper: {
+    backgroundColor: '#474747', 
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#5a5a5a',
+  },
+  itemText: {
+    color: '#d1d1d1',
+    fontSize: 14,
+  },
+  selectedItem: {
+    backgroundColor: '#2e2e2e',
+    borderRadius: 8,
+  },
+  selectedItemText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+  },
   dropdowncontainer: {
-  backgroundColor: '#474747',
-  borderRadius: 12,
-  borderWidth: 0,
-  
-  
+    backgroundColor: '#474747',
+    borderRadius: 12,
+    borderWidth: 0,
   },
   placeholderStyle: {
     fontSize: 14,
     color: '#7d7d7d',
-        borderRadius:12,
-        backgroundColor:'transparent',
+    borderRadius:12,
+    backgroundColor:'transparent',
   },
   selectedTextStyle: {
     fontSize: 14,
     color: '#7d7d7d',
-        backgroundColor:'transparent',
+    backgroundColor:'transparent',
+  },
+  iconHidden: {
+    display: 'none',
+  },
+  dropdownFocus: {
+    borderColor: '#2e2e2e',
   },
 });
+
+export default DropdownComponent;
