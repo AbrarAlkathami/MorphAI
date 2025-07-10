@@ -5,10 +5,9 @@ import { Dropdown } from 'react-native-element-dropdown';
 const data = [
   { label: 'GPT 4o', value: '1' },
   { label: '4o-mini', value: '2' },
-  { label: 'DeepSeek', value: '3' },
 ];
 
-const DropdownComponent = () => {
+const  DropdownComponent = () => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -32,6 +31,7 @@ const DropdownComponent = () => {
           onChange={item => {
             setValue(item.value);
             setIsFocus(false);
+            // TODO: handle selection when ready
           }}
         />
       </View>

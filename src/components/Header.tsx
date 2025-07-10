@@ -2,11 +2,11 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import DropdownMenu from './DropdownMenu'
 
-const Header = () => {
+const Header = ({ onSelectModel }: { onSelectModel: (value: string) => void }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}> MorphAI </Text>
-            <DropdownMenu />
+            <DropdownMenu onSelectModel={onSelectModel} />
         </View>
     )
 }

@@ -1,6 +1,6 @@
-import { StyleSheet, View, TextInput, } from "react-native";
+import { StyleSheet, View, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from 'react';
-import { IconButton } from 'react-native-paper';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 type InputFieldProps = {
   onSend: (message: string) => void;
@@ -26,13 +26,9 @@ const InputField = ({ onSend }: InputFieldProps) => {
                 placeholderTextColor="#777"
                 keyboardType="default"
                 />
-                <IconButton
-                icon="send-outline"
-                size={24}
-                iconColor="#fff"
-                onPress={handleSend}
-                style={styles.sendButton}
-                />
+                <TouchableOpacity onPress={handleSend} style={styles.sendButton}>
+                  <Entypo name="chevron-small-right" style={styles.icon} />
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -62,6 +58,11 @@ const styles = StyleSheet.create({
   sendButton: {
     margin: 0,
   },
+  icon: {
+  fontSize: 24,
+  color: '#fff',
+  paddingRight:6,
+},
 });
 
 export default InputField;
