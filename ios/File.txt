@@ -1,0 +1,1 @@
+766F9362B304CB0F7CC8BC82 /* libPods-MyFirstApp.a in Frameworks */
